@@ -1,0 +1,110 @@
+{
+  "items": [
+    {
+      "title": "Man's running Shoes",
+      "price": 48.99,
+      "imageUrl": "/img/sneakers/1.jpg",
+      "id": "6f4d"
+    },
+    {
+      "title": "Air Sneakers Max Original",
+      "price": 76.99,
+      "imageUrl": "/img/sneakers/2.jpg",
+      "id": "3177"
+    },
+    {
+      "title": "Run Shoes Air Super Aqua",
+      "price": 88.99,
+      "imageUrl": "/img/sneakers/3.jpg",
+      "id": "6bee"
+    },
+    {
+      "title": "Run Shoes Air Plus Spriter",
+      "price": 88.99,
+      "imageUrl": "/img/sneakers/4.jpg",
+      "id": "bb4d"
+    },
+    {
+      "title": "Shoes Super STAR",
+      "price": 41.99,
+      "imageUrl": "/img/sneakers/5.jpg",
+      "id": "9eaf"
+    },
+    {
+      "title": "Made in china Shoes",
+      "price": 9.99,
+      "imageUrl": "/img/sneakers/6.jpg",
+      "id": "aa5d"
+    },
+    {
+      "title": "Short Sprinter Max",
+      "price": 15.99,
+      "imageUrl": "/img/sneakers/7.jpg",
+      "id": "3f94"
+    },
+    {
+      "title": "Mega Speed Air",
+      "price": 150.99,
+      "imageUrl": "/img/sneakers/8.jpg",
+      "id": "f7dc"
+    }
+  ],
+  "cart": [
+    {
+      "id": "6bee",
+      "title": "Run Shoes Air Super Aqua",
+      "price": 88.99,
+      "imageUrl": "/img/sneakers/3.jpg"
+    },
+    {
+      "id": "3f94",
+      "title": "Short Sprinter Max",
+      "price": 15.99,
+      "imageUrl": "/img/sneakers/7.jpg"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "3116",
+      "title": "Man's running Shoes",
+      "imageUrl": "/img/sneakers/1.jpg",
+      "price": 48.99
+    },
+    {
+      "id": "01a6",
+      "title": "Man's running Shoes",
+      "imageUrl": "/img/sneakers/1.jpg",
+      "price": 48.99
+    },
+    {
+      "id": "19d8",
+      "title": "Air Sneakers Max Original",
+      "imageUrl": "/img/sneakers/2.jpg",
+      "price": 76.99
+    },
+    {
+      "id": "d103",
+      "title": "Run Shoes Air Super Aqua",
+      "imageUrl": "/img/sneakers/3.jpg",
+      "price": 88.99
+    },
+    {
+      "id": "0448",
+      "title": "Run Shoes Air Super Aqua",
+      "imageUrl": "/img/sneakers/3.jpg",
+      "price": 88.99
+    },
+    {
+      "id": "7b68",
+      "title": "Air Sneakers Max Original",
+      "imageUrl": "/img/sneakers/2.jpg",
+      "price": 76.99
+    },
+    {
+      "id": "7848",
+      "title": "Air Sneakers Max Original",
+      "imageUrl": "/img/sneakers/2.jpg",
+      "price": 76.99
+    }
+  ]
+}
