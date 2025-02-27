@@ -61,6 +61,18 @@
       "title": "Short Sprinter Max",
       "price": 15.99,
       "imageUrl": "/img/sneakers/7.jpg"
+    },
+    {
+      "id": "8cb5",
+      "title": "Air Sneakers Max Original",
+      "imageUrl": "/img/sneakers/2.jpg",
+      "price": 76.99
+    },
+    {
+      "id": "7d8b",
+      "title": "Air Sneakers Max Original",
+      "imageUrl": "/img/sneakers/2.jpg",
+      "price": 76.99
     }
   ],
   "favorites": [

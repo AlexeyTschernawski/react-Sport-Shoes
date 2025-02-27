@@ -1,10 +1,12 @@
 import React from 'react';
-import{Routes, Route} from 'react-router-dom';
+
 import axios from 'axios';
 import Card from './components/Card';
 import Header from './components/Header';
 import Drawer from './components/Drawer';
-
+import ModalLogin from './components/ModalLogin';
+import { storage } from "./firebaseConfig";
+import { ref, getDownloadURL } from "firebase/storage";
 
 
 
@@ -15,15 +17,37 @@ function App() {
   const [favorites, setFavorites] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [cartOpened, setCartOpened] = React.useState(false);
+  const [isAuthModalOpen, setAuthModalOpen] = React.useState(false);
 
   React.useEffect(() => {
-    axios.get('http://localhost:5000/items').then((res) => {
-      setItems(res.data);
-    });
-    axios.get('http://localhost:5000/cart').then((res) => {
-      setCartItems(res.data);
-    });
-  }, []);
+    const fetchData = async () => {
+        try {
+            const res = await axios.get("http://localhost:8080/api/works");
+            console.log("Response data:", res.data);
+
+            // Получаем URL изображений из Firebase
+            const worksWithImages = await Promise.all(
+                res.data.map(async (item) => {
+                    try {
+                        const fileRef = ref(storage, item.image); // `item.image` - имя файла в Firebase
+                        const imageUrl = await getDownloadURL(fileRef); // Получаем URL
+
+                        return { ...item, imageUrl };
+                    } catch (error) {
+                        console.error("Ошибка загрузки изображения:", error);
+                        return { ...item, imageUrl: null }; // Если ошибка, ставим null
+                    }
+                })
+            );
+
+            setItems(worksWithImages);
+        } catch (error) {
+            console.error("Ошибка получения данных:", error);
+        }
+    };
+
+    fetchData();
+}, []);
 
   const onAddToCart = (obj) => {
     axios.post('http://localhost:5000/cart', obj)
@@ -48,14 +72,18 @@ function App() {
 
 
   return (
+
+    
+
     <div className="wrapper clear">
 
       {cartOpened && <Drawer items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />}
-      <Header onClickCart={() => setCartOpened(true)} />
+      <Header 
+        onClickCart={() => setCartOpened(true)} 
+        onClickUser={() => setAuthModalOpen(true)}  
+        />
 
-      <Routes> {/* ✅ Обязательно оборачиваем Route в Routes */}
-        <Route path="/test" element={<h1>Test information</h1>} />
-      </Routes>
+      {isAuthModalOpen && <ModalLogin onClose={() => setAuthModalOpen(false)} />}
 
       <div className="content p-40">
         <div className="d-flex align-center justify-between mb-40">
@@ -82,7 +110,7 @@ function App() {
               <Card
                 key={index}
                 title={item.title}
-                price={item.price}
+                description={item.description}
                 imageUrl={item.imageUrl}
                 onFavorite={(obj) =>onAddToFavorite(obj)}
                 onPlus={(obj) => onAddToCart(obj)}
